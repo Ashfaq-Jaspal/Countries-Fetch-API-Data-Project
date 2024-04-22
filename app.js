@@ -29,11 +29,11 @@ fetch(`https://restcountries.com/v3.1/all`)
                         popUp.innerHTML = `<table>
     <tr>
         <th>Common Name</th>
-        <th>${data[clickedElem].name.common}</th>
+        <th class = "country-name">${data[clickedElem].name.common}</th>
     </tr>
     <tr>
         <th>Official Name</th>
-        <th>${data[clickedElem].name.official}</th>
+        <th class = "country-name">${data[clickedElem].name.official}</th>
     </tr>
     <tr>
     <th>Flag</th>

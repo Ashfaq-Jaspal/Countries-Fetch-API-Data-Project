@@ -31,6 +31,9 @@ th img{
     width: 350px; 
     border: 1px solid black;
 }
+.country-name{
+    font-size : 30px
+}
 
 @media screen and (max-width: 660px) {
     
@@ -43,5 +46,8 @@ th{
 th img{
     height: 110px;
     width: 180px;
+}
+.country-name{
+    font-size : 25px
 }
 }
