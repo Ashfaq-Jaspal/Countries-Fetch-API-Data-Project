@@ -1,0 +1,47 @@
+*{
+    box-sizing: border-box;
+}
+.country-box{
+    padding: 0 10px;
+    /* border: 1px solid red; */
+}
+.flag-div{
+    border: 1px solid black;
+    height: 220px;
+}
+.flag{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+.country-box{
+    width: 380px;
+}
+.country-box h1{
+    margin-bottom: 0;
+}
+
+th{
+    padding: 8px 50px;
+    font-size: 20px;
+    /* border: 1px solid red; */
+}
+th img{
+    height: 200px; 
+    width: 350px; 
+    border: 1px solid black;
+}
+
+@media screen and (max-width: 660px) {
+    
+.flag-div{
+    height: 180px;
+}
+th{
+    padding: 0;
+}
+th img{
+    height: 110px;
+    width: 180px;
+}
+}
