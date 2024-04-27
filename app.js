@@ -16,105 +16,34 @@ fetch(`https://restcountries.com/v3.1/all`)
         function showCountries() {
             let box = ``;
             data.forEach((country, index) => {
-                box += `<div class="country-box"">
-                <h1>${data[index].name.common}</h1>
+                box += `<div data-index = "${index}" class="country-box">
                 <div class = "flag-div">
-                <img data-index = "${index}" class = "flag" src="${data[index].flags.png}" alt="">
+                <img class = "flag" src="${data[index].flags.png}">
                 </div>
+                <p>${data[index].name.common}</p>
+                <i class="ri-arrow-right-line"></i>
             </div>`;
             });
             countries.innerHTML = box;
             // Showing More Details on click
             function showCountry() {
                 countries.addEventListener(`click`, (details) => {
-                    if (details.target.classList.contains(`flag`)) {
+                    if (details.target.classList.contains(`country-box`)) {
                         let clickedElem = details.target.dataset.index;
-                        popUp.innerHTML = `<table>
-    <tr>
-        <th>Common Name</th>
-        <th class = "country-name">${data[clickedElem].name.common}</th>
-    </tr>
-    <tr>
-        <th>Official Name</th>
-        <th class = "country-name">${data[clickedElem].name.official}</th>
-    </tr>
-    <tr>
-    <th>Flag</th>
-    <th><img src="${data[clickedElem].flags.png}"></th>
-</tr>
-<tr>
-    <th>Coat Of Arms</th>
-    <th><img src="${data[clickedElem].coatOfArms.png}"></th>
-</tr>
-    <tr>
-        <th>Status</th>
-        <th>${data[clickedElem].status}</th>
-    </tr>
-    <tr>
-        <th>UN Member</th>
-        <th>${data[clickedElem].unMember}</th>
-    </tr>
-    <tr>
-        <th>Capital</th>
-        <th>${data[clickedElem].capital}</th>
-    </tr>
-    <tr>
-        <th>Region</th>
-        <th>${data[clickedElem].region}</th>
-    </tr>
-    <tr>
-        <th>Sub Region</th>
-        <th>${data[clickedElem].subregion}</th>
-    </tr>
-    <tr>
-        <th>Latitude & Longitude</th>
-        <th>${data[clickedElem].latlng}</th>
-    </tr>
-    <tr>
-        <th>Languages</th>
-        <th>${Object.values(data[clickedElem].languages).toString()}</th>
-    </tr>
-    <tr>
-        <th>Currency</th>
-        <th>${Object.entries(data[clickedElem].currencies)[0][1].name}</th>
-    </tr>
-    <tr>
-        <th>Landlocked</th>
-        <th>${data[clickedElem].landlocked}</th>
-    </tr>
-    <tr>
-        <th>Borders</th>
-        <th>${data[clickedElem].borders}</th>
-    </tr>
-    <tr>
-        <th>Area</th>
-        <th>${data[clickedElem].area}</th>
-    </tr>
-    <tr>
-        <th>Google Map</th>
-        <th><a href="${data[clickedElem].maps.googleMaps}" target="_blank">Click here</a></th>
-    </tr>
-    <tr>
-        <th>Open Street Map</th>
-        <th><a href="${data[clickedElem].maps.openStreetMaps}" target="_blank">Click here</a></th>
-    </tr>
-    <tr>
-        <th>Population</th>
-        <th>${data[clickedElem].population}</th>
-    </tr>
-    <tr>
-        <th>Time zone</th>
-        <th>${data[clickedElem].timezones}</th>
-    </tr>
-    <tr>
-        <th>Continent</th>
-        <th>${data[clickedElem].continents}</th>
-    </tr>
-    <tr>
-        <th>Start Of Week</th>
-        <th>${data[clickedElem].startOfWeek}</th>
-    </tr>
-</table>
+                        popUp.innerHTML = `<h1>${data[clickedElem].name.common}</h1>
+                        <div><img class="flag-img" src="${data[clickedElem].flags.png}"></div>
+                        <p>Official Name: <span>${data[clickedElem].name.official}</span></p>
+                        <p>Population: <span>${data[clickedElem].population}</span></p>
+                        <p>Region: <span>${data[clickedElem].region}</span></p>
+                        <p>Sub Region: <span>${data[clickedElem].subregion}</span></p>
+                        <p>Capital: <span>${data[clickedElem].capital}</span></p>
+                        <p>Area: <span>${data[clickedElem].area}</span></p>
+                        <p>Borders: <span>${data[clickedElem].borders}</span></p>
+                        <p>Google Map: <a href="${data[clickedElem].maps.googleMaps}" target="_blank">Click Here</a></p>
+                        <p>Languages: <span>${Object.values(data[clickedElem].languages).toString()}</span></p>
+                        <p>Currency: <span>${Object.entries(data[clickedElem].currencies)[0][1].name}</span></p>
+                        <p>Latitude & Longitude: <span>${data[clickedElem].latlng}</span></p>
+                        <p>Time zone: <span>${data[clickedElem].timezones}</span></p>
 
 <i class="ri-close-large-line icon" onClick = "closePopup()"></i>`;
                         overlay.style.display = `block`;
@@ -135,105 +64,34 @@ fetch(`https://restcountries.com/v3.1/all`)
             function showCountries() {
                 let box = ``;
                 filteredArray.forEach((country, index) => {
-                    box += `<div class="country-box"">
-                <h1>${filteredArray[index].name.common}</h1>
-                <div class = "flag-div">
-                <img data-index = "${index}" class = "flag" src="${filteredArray[index].flags.png}" alt="">
-                </div>
+                    box += `<div data-index = "${index}" class="country-box">
+                    <div class = "flag-div">
+                    <img class = "flag" src="${filteredArray[index].flags.png}">
+                    </div>
+                    <p>${filteredArray[index].name.common}</p>
+                    <i class="ri-arrow-right-line"></i>
             </div>`;
                 });
                 countries.innerHTML = box;
                 // Showing More Details on clicking
                 function showCountry() {
                     countries.addEventListener(`click`, (details) => {
-                        if (details.target.classList.contains(`flag`)) {
+                        if (details.target.classList.contains(`country-box`)) {
                             let clickedElem = details.target.dataset.index;
-                            popUp.innerHTML = `<table>
-    <tr>
-        <th>Common Name</th>
-        <th class = "country-name">${filteredArray[clickedElem].name.common}</th>
-    </tr>
-    <tr>
-        <th>Official Name</th>
-        <th class = "country-name">${filteredArray[clickedElem].name.official}</th>
-    </tr>
-    <tr>
-    <th>Flag</th>
-    <th><img src="${filteredArray[clickedElem].flags.png}"></th>
-</tr>
-<tr>
-    <th>Coat Of Arms</th>
-    <th><img src="${filteredArray[clickedElem].coatOfArms.png}"></th>
-</tr>
-    <tr>
-        <th>Status</th>
-        <th>${filteredArray[clickedElem].status}</th>
-    </tr>
-    <tr>
-        <th>UN Member</th>
-        <th>${filteredArray[clickedElem].unMember}</th>
-    </tr>
-    <tr>
-        <th>Capital</th>
-        <th>${filteredArray[clickedElem].capital}</th>
-    </tr>
-    <tr>
-        <th>Region</th>
-        <th>${filteredArray[clickedElem].region}</th>
-    </tr>
-    <tr>
-        <th>Sub Region</th>
-        <th>${filteredArray[clickedElem].subregion}</th>
-    </tr>
-    <tr>
-        <th>Latitude & Longitude</th>
-        <th>${filteredArray[clickedElem].latlng}</th>
-    </tr>
-    <tr>
-        <th>Languages</th>
-        <th>${Object.values(filteredArray[clickedElem].languages).toString()}</th>
-    </tr>
-    <tr>
-    <th>Currency</th>
-    <th>${Object.entries(filteredArray[clickedElem].currencies)[0][1].name}</th>
-    </tr>
-    <tr>
-        <th>Landlocked</th>
-        <th>${filteredArray[clickedElem].landlocked}</th>
-    </tr>
-    <tr>
-        <th>Borders</th>
-        <th>${filteredArray[clickedElem].borders}</th>
-    </tr>
-    <tr>
-        <th>Area</th>
-        <th>${filteredArray[clickedElem].area}</th>
-    </tr>
-    <tr>
-        <th>Google Map</th>
-        <th><a href="${filteredArray[clickedElem].maps.googleMaps}" target="_blank">Click here</a></th>
-    </tr>
-    <tr>
-        <th>Open Street Map</th>
-        <th><a href="${filteredArray[clickedElem].maps.openStreetMaps}" target="_blank">Click here</a></th>
-    </tr>
-    <tr>
-        <th>Population</th>
-        <th>${filteredArray[clickedElem].population}</th>
-    </tr>
-    <tr>
-        <th>Time zone</th>
-        <th>${filteredArray[clickedElem].timezones}</th>
-    </tr>
-    <tr>
-        <th>Continent</th>
-        <th>${filteredArray[clickedElem].continents}</th>
-    </tr>
-    <tr>
-        <th>Start Of Week</th>
-        <th>${filteredArray[clickedElem].startOfWeek}</th>
-    </tr>
-</table>
+                            popUp.innerHTML = `<h1>${filteredArray[clickedElem].name.common}</h1>
+                            <div><img class="flag-img" src="${filteredArray[clickedElem].flags.png}"></div>
+                            <p>Official Name: <span>${filteredArray[clickedElem].name.official}</span></p>
+                            <p>Population: <span>${filteredArray[clickedElem].population}</span></p>
+                            <p>Region: <span>${filteredArray[clickedElem].region}</span></p>
+                            <p>Sub Region: <span>${filteredArray[clickedElem].subregion}</span></p>
+                            <p>Capital: <span>${filteredArray[clickedElem].capital}</span></p>
+                            <p>Area: <span>${filteredArray[clickedElem].area}</span></p>
+                            <p>Borders: <span>${filteredArray[clickedElem].borders}</span></p>
+                            <p>Google Map: <a href="${filteredArray[clickedElem].maps.googleMaps}" target="_blank">Click Here</a></p>
+                            <p>Languages: <span>${Object.values(filteredArray[clickedElem].languages).toString()}</span></p>
+                            <p>Currency: <span>${Object.entries(filteredArray[clickedElem].currencies)[0][1].name}</span></p>
+                            <p>Latitude & Longitude: <span>${filteredArray[clickedElem].latlng}</span></p>
+                            <p>Time zone: <span>${filteredArray[clickedElem].timezones}</span></p>
 
 <i class="ri-close-large-line icon" onClick = "closePopup()" style="font-size: 30px; cursor: pointer; position: absolute; top: 20px; right: 20px;"></i>`;
                             overlay.style.display = `block`;
@@ -246,9 +104,9 @@ fetch(`https://restcountries.com/v3.1/all`)
             showCountries();
         });
     });
-// On Form Submission Input Field will be empty
+// Form Submission
 form.addEventListener(`submit`, (event) => {
-    searchInput.value = ``;
+    searchInput.blur()
     event.preventDefault();
 });
 // Showing All Countries Function
