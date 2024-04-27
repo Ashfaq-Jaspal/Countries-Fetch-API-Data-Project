@@ -109,71 +109,8 @@ form.addEventListener(`submit`, (event) => {
     searchInput.blur()
     event.preventDefault();
 });
-// Showing All Countries Function
-showAllBtn
-    .addEventListener(`click`, () => {
-        window.location.reload();
-    })
-
-    .catch((error) => {
-        console.log(`Cannot fetch data`, error);
-    });
-
+// Closing PopUp
 function closePopup() {
     popUp.style.display = `none`;
     overlay.style.display = `none`;
 }
-
-
-
-
-
-// 1 Callback asynchronus
-
-// let myName;
-
-// function fetchData(callback) {
-//     setTimeout(() => {
-//         callback(myName = `Ali`)
-//     }, 2000);
-// }
-
-// function display(data) {
-//     console.log(data);
-// }
-// fetchData(display)
-
-// 2 Promise asynchronus
-
-// let myName;
-
-// function fetchData() {
-//     return new Promise(function (resolve, reject) {
-//         setTimeout(() => {
-//             resolve(myName = `Ali`)
-//         }, 2000);
-//     })
-// }
-// fetchData()
-
-// .then((data) => {
-//     console.log(data);
-// })
-// .catch((error) => {
-//     console.log(error);
-// })
-
-// 3 How to fetch data
-
-// fetch(`https://restcountries.com/v3.1/all`)
-//     .then((data) => {
-//         return data.json();
-//     })
-
-//     .then((data) => {
-//         console.log(data[0]);
-//     })
-
-//     .catch((error) => {
-//         console.log(error);
-//     });
