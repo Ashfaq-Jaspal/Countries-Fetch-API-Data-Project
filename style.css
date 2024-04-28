@@ -12,13 +12,13 @@ body,html{
     color: blue;
 }
 h1{
-    padding: 0 20px;
+    padding: 0 20px; word-wrap: break-word; text-align: center;
 }
 p{
-    font-weight: bold; word-wrap: break-word; text-align: center; padding: 0 20px;
+    font-weight: bold; word-wrap: break-word; text-align: center; padding: 0 20px; word-break: break-all;
 }
 span{
-    font-weight: normal;
+    font-weight: normal; word-wrap: break-word; text-align: center; word-break: break-all;
 }
 .icon{
     font-size: 30px; cursor: pointer; color: blue; position: absolute; top: 20px; right: 20px;
