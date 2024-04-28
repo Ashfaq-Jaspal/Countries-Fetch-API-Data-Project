@@ -11,8 +11,11 @@ body,html{
 .country-box i {
     color: blue;
 }
+h1{
+    padding: 0 20px;
+}
 p{
-    font-weight: bold; word-break: break-all;
+    font-weight: bold; word-wrap: break-word; text-align: center; padding: 0 20px;
 }
 span{
     font-weight: normal;
@@ -46,19 +49,4 @@ button{
 }
 #all-countries{
     margin: 20px 0; display: flex; justify-content: center; flex-wrap: wrap;
-}
-/* Media Query  */
-@media screen and (max-width: 660px) {
-    .flag-div {
-        height: 40px;
-    }
-    th {
-        padding: 0;
-    }
-    th img {
-        height: 110px; width: 180px;
-    }
-    .country-name {
-        font-size: 25px;
-    }
 }
